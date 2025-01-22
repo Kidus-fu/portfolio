@@ -1,0 +1,114 @@
+[
+  {
+    "title": "Java Script",
+    "image": "https://cdn.pixabay.com/photo/2015/04/23/17/41/javascript-736400_1280.png",
+    "discrption": "I have a solid foundation in JavaScript, enabling me to create interactive web experiences. I effectively handle events like clicks and key presses, allowing me to respond to user actions dynamically. My skills include manipulating the DOM to change styles and content in real time. Additionally, I am exploring CSS animations and integrating them with JavaScript to enhance visual effects on the website. This combination of skills allows me to build engaging and responsive web applications that meet client needs.",
+    "category": "Web Development",
+    "Rate": 5
+  },
+  {
+    "title": "React Js",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+    "discrption": "I have a solid understanding of React, enabling me to build dynamic and interactive web applications. I am skilled in creating functional components, utilizing hooks like useEffect to manage side effects and component lifecycle events. I can effectively manipulate the DOM and apply styles, including defining CSS animations directly within components. My experience allows me to create responsive layouts and integrate various APIs seamlessly, ensuring a smooth user experience. I am committed to following best practices and keeping up with the latest advancements in the React ecosystem to deliver high-quality results.",
+    "category": "Web Development",
+    "Rate": 5
+  },
+  {
+    "title": "HTML",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg",
+    "discrption": "I possess a strong understanding of HTML, which is the foundation of web development. I am skilled in structuring web pages using semantic HTML elements, ensuring accessibility and search engine optimization. I can effectively create forms, tables, and multimedia content, enhancing user experience. My proficiency extends to integrating HTML with CSS and JavaScript, allowing for the development of dynamic and responsive layouts. I stay updated with best practices and standards to deliver clean, well-organized code that meets client requirements.",
+    "category": "Web Development",
+    "Rate": 5
+  },
+  {
+    "title": "CSS",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg",
+    "discrption": "I possess a strong understanding of CSS, enabling me to create visually appealing and responsive designs. My expertise includes using modern CSS techniques, such as Flexbox and Grid layout, to build user-friendly interfaces. I am also skilled in implementing animations and transitions to enhance the user experience, ensuring that websites are both aesthetically pleasing and functionally effective.",
+    "category": "Web Development",
+    "Rate": 5
+  },
+  {
+    "title": "Python",
+    "image": "https://www.svgrepo.com/show/303532/python-3-logo.svg",
+    "discrption": "I have a solid foundation in Python, enabling me to develop robust applications and automate tasks effectively. My experience includes working with popular libraries and frameworks such as  Django for web development, as well as data analysis using Pandas and NumPy. I am adept at writing clean, efficient code and leveraging Python's versatility to solve complex problems, ensuring high-quality deliverables for my clients.",
+    "category": "Programming Language",
+    "Rate": 4
+  },
+  {
+    "title": "Django",
+    "image": "https://www.svgrepo.com/show/349341/djangoproject.svg",
+    "discrption": "I have extensive experience in using Django and Django REST Framework to build scalable and efficient web applications. My skills include designing RESTful APIs, managing database interactions, and implementing user authentication and authorization. I am proficient in leveraging Django's powerful features, such as its ORM and admin interface, to create robust backend solutions. With a focus on clean architecture and best practices, I ensure high performance and maintainability in all my projects.",
+    "category": "Web Development",
+    "Rate": 3
+  },
+  {
+    "title": "GitHub",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg",
+    "discrption": "I have a strong understanding of Git and GitHub, allowing me to efficiently manage version control and collaborate effectively on projects. My skills include creating and managing repositories, branching and merging code, and utilizing Git workflows to streamline development processes. I am proficient in resolving conflicts and conducting code reviews, ensuring that code quality is maintained. With GitHub, I leverage its powerful features for continuous integration and deployment, enhancing collaboration and project visibility",
+    "category": "Version Control System",
+    "Rate": 5
+  },
+  {
+    "title": "C",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png",
+    "discrption": "I have a foundational understanding of C, which has helped me grasp how computers and programming languages work at a deeper level. Through the CS50x course, I learned concepts such as loops, conditionals, and pointers. While I do not actively work with C, my knowledge of this language enhances my overall programming comprehension and problem-solving abilities.",
+    "category": "Programming Foundations",
+    "Rate": 2
+  },
+  {
+    "title": "Pandas",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Pandas_logo.svg",
+    "discrption": "I am familiar with the basics of the Pandas library, including working with DataFrames and Series to organize and manipulate data. I can perform simple tasks like reading data from CSV files, filtering rows, and selecting specific columns. While I am still exploring its advanced features, I understand its importance in data analysis and plan to deepen my knowledge over time.",
+    "category": "Data Analysis",
+    "Rate": 5
+  },
+  {
+    "title": "NumPy",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/31/NumPy_logo_2020.svg",
+    "discrption": "I have a basic understanding of the NumPy library, including creating and manipulating arrays for numerical computations. I can perform simple mathematical operations and understand its role in handling large datasets efficiently. While I am still learning its more advanced features, I am confident in using NumPy for foundational tasks in data analysis.",
+    "category": "Data Analysis",
+    "Rate": 4
+  },
+  {
+    "title": "Streamlit",
+    "discrption": "Currently learning Streamlit to build interactive data apps. While not yet fully confident, I'm actively gaining experience. Streamlit is a powerful tool for creating data-driven web applications with minimal effort, and I'm excited to explore its capabilities. With continued practice and hands-on projects, I am confident I will become proficient in developing engaging, user-friendly data applications using Streamlit.",
+    "image": "https://th.bing.com/th/id/R.ff47037fa9ab89dd8d77c8ababc7d8c9?rik=dIJIqEqY%2bkYNLA&pid=ImgRaw&r=0",
+    "category": "Data Analysis",
+    "Rate": 3
+  },
+  {
+    "title": "Project Management",
+    "discrption": "Planning to develop project management skills in the future. I aim to gain a deeper understanding of the methodologies and tools used in managing projects effectively. With a focus on organization, communication, and leadership, I look forward to learning how to oversee and drive projects to successful completion.",
+    "image": "https://th.bing.com/th/id/OIP.qAUue9YSTGKbCV6dEpJ0-QHaDy?w=2048&h=1046&rs=1&pid=ImgDetMain",
+    "category": "Professional Skills",
+    "Rate": 3
+  },
+  {
+    "title": "Artificial Intelligence (AI)",
+    "discrption": "In the future, I plan to focus on learning and applying artificial intelligence (AI). I am excited to explore the various AI techniques such as machine learning, deep learning, and natural language processing. I aim to gain expertise in creating intelligent systems that can make decisions and learn from data. As I gain hands-on experience, I hope to apply AI to real-world problems and projects. With a strong foundation in programming and data analysis, I am confident in my ability to excel in the field of artificial intelligence.",
+    "image": "https://th.bing.com/th/id/OIP.u-LGMDwMFZZLdIhk3ehnawHaE8?rs=1&pid=ImgDetMain",
+    "category": "Future Skills",
+    "Rate": 5
+  },
+  {
+    "title": "Flutter",
+    "discrption": "In the future, I plan to learn Flutter for building cross-platform mobile applications. Flutter allows for the development of high-performance apps for both iOS and Android using a single codebase. I am eager to explore its capabilities in creating beautiful and responsive mobile UIs, and I look forward to gaining hands-on experience to develop mobile apps efficiently and effectively. With my background in web development and programming, I am confident in my ability to master Flutter and create engaging mobile applications.",
+    "image": "https://th.bing.com/th/id/OIP.10RECXGTH5NyaeBg5yD1pwHaDp?rs=1&pid=ImgDetMain",
+    "category": "Future Skills",
+    "Rate": 4
+  },
+  {
+    "title": "Problem Solving",
+    "discrption": "In the future, I plan to enhance my problem-solving skills to tackle complex challenges in software development. I aim to focus on algorithms, data structures, and logical thinking to improve my ability to approach problems systematically. Mastering problem-solving will allow me to write more efficient code, optimize performance, and approach coding challenges with confidence. I will practice regularly through platforms like LeetCode, Codeforces, and others to strengthen my skills. With dedication and persistence, I am confident in my ability to become a proficient problem solver.",
+    "image": "https://th.bing.com/th/id/OIP.kB7PFXpaBSNXD4efHUiargHaD2?rs=1&pid=ImgDetMain",
+    "category": "Future Skills",
+    "Rate": 4
+  },
+  {
+    "title": "Unreal Engine",
+    "discrption": "Learning Unreal Engine for game development. Exploring its powerful tools for creating stunning graphics, environments, and interactive gameplay. I am excited to delve into game design and development, leveraging Unreal Engine's capabilities to bring creative ideas to life. With a focus on learning Blueprints and C++ programming within the engine, I aim to build engaging and immersive gaming experiences. As I gain hands-on experience, I look forward to creating my own games and projects using Unreal Engine. Through practice and experimentation, I am confident in my ability to excel in game development.",
+    "image": "https://th.bing.com/th/id/OIP.eUCEBcs5pStm6lSEUlM1KQHaE8?rs=1&pid=ImgDetMain",
+    "category": "Future Skills",
+    "Rate": 3
+  }
+]
