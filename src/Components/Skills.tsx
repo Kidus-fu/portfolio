@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import skillsdata from "../Data/skill.json";
-import { Affix, Card, Modal, Image, Rate } from "antd";
+import {  Card, Modal, Image, Rate } from "antd";
 import useMediaQuery from "../hooks/useMediaQuery";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
