@@ -74,7 +74,7 @@ const SkillsCard = () => {
   return (
     <>
       {/* Affix for Theme Switch */}
-      <Affix offsetTop={100} className="float-end"></Affix>
+      {/* <Affix offsetTop={100} className="float-end"></Affix> */}
 
       {/* Cards */}
       <div className=" flex flex-wrap justify-center gap-4">
