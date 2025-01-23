@@ -14,8 +14,8 @@ createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path="/" element={<App />} >
           <Route index element={<FirstContent />} />
-          <Route path="aboutme" element={<SecondContent />} />
-          <Route path='skills' element={<Skills />} />
+          <Route path="/aboutme" element={<SecondContent />} />
+          <Route path='/skills' element={<Skills />} />
         </Route>
         <Route path="*" element={<Result status={'404'} title="404" subTitle={<Link to={"/"}>Home</Link>}></Result>} />
       </Routes>
