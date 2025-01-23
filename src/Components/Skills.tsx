@@ -289,7 +289,7 @@ const SkillsCard = () => {
             options={[
               "All",
               "Web Deve",
-              "Future Skills",
+              "Future ",
               "Data Analysis"
             ]}
             onChange={(value) => {
