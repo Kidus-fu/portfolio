@@ -8,8 +8,8 @@ import {
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import {  Layout, Menu, Spin } from "antd";
-import React, { useState } from "react";
-import { Link, Outlet } from "react-router";
+import React, {  useState } from "react";
+import {  NavLink, Outlet, useLocation } from "react-router";
 import { motion } from "framer-motion"; // Import motion from Framer Motion
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -25,7 +25,6 @@ const siderStyle: React.CSSProperties = {
   scrollbarWidth: "thin",
   scrollbarGutter: "stable",
 };
-
 function getItem(
   label: React.ReactNode,
   key: React.Key,
@@ -40,27 +39,35 @@ function getItem(
   } as MenuItem;
 }
 
-const items: MenuItem[] = [
-  getItem(<Link to="/">Profile Summary</Link>, "1", <DashboardOutlined />),
-  getItem(<Link to="/skills">Skills</Link>, "2", <BookOutlined />),
-  getItem(<Link to="/aboutme">Aboutme</Link>, "sub1", <UserOutlined />),
-  getItem(<Link to="/team">Team</Link>, "sub2", <TeamOutlined />, [
-    getItem(<Link to="/team1">Team 1</Link>, "6"),
-    getItem(<Link to="/team2">Team 2</Link>, "8"),
-  ]),
-  getItem(<Link to="/files">Files</Link>, "9", <FileOutlined />),
-];
+
 
 const App: React.FC = () => {
-  const [collapsed, setCollapsed] = useState(false);
+  const location = useLocation();
+  const pathname = location.pathname.split("/")[1];
+  const [activeLink,setActiveLink] = useState(pathname);
+  const [collapsed, setCollapsed] = useState(true);
   const [loading, setLoading] = React.useState<boolean>(false);
-
+  
   const loadingset = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
     }, 3000);
   };
+  const handleClicklink = (e: any) => {
+    setActiveLink(e.key);
+  };
+  const items: MenuItem[] = [
+    getItem(<NavLink to="/" onClick={() => handleClicklink("profile")}>Profile Summary</NavLink>, "profile", <DashboardOutlined />),
+    getItem(<NavLink to="/skills" onClick={() => handleClicklink("skills")}>Skills</NavLink>, "skills", <BookOutlined />),
+    getItem(<NavLink to="/aboutme" onClick={() => handleClicklink("aboutme")}>Aboutme</NavLink>, "aboutme", <UserOutlined />),
+    getItem(<NavLink to="/team">Team</NavLink>, "sub2", <TeamOutlined />, [
+      getItem(<NavLink to="/team1">Team 1</NavLink>, "6"),
+      getItem(<NavLink to="/team2">Team 2</NavLink>, "8"),
+    ]),
+    getItem(<NavLink to="/files">Files</NavLink>, "9", <FileOutlined />),
+  ];
+
   return (
     <Layout className="min-h-screen bg-gray-100">
       <Sider
@@ -75,7 +82,7 @@ const App: React.FC = () => {
         </div>
         <Menu
           theme="dark"
-          defaultSelectedKeys={["1"]}
+          defaultSelectedKeys={[activeLink]}
           onClick={loadingset}
           mode="inline"
           items={items}
