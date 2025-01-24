@@ -2,15 +2,16 @@ import "./App.css";
 import {
   DashboardOutlined,
   FileOutlined,
-  TeamOutlined,
   UserOutlined,
   BookOutlined,
+  CodepenCircleOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import {  Layout, Menu, Spin } from "antd";
+import {   Layout, Menu, Spin } from "antd";
 import React, {  useState } from "react";
 import {  NavLink, Outlet, useLocation } from "react-router";
 import { motion } from "framer-motion"; // Import motion from Framer Motion
+import useMediaQuery from "./hooks/useMediaQuery";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -47,6 +48,7 @@ const App: React.FC = () => {
   const [activeLink,setActiveLink] = useState(pathname);
   const [collapsed, setCollapsed] = useState(true);
   const [loading, setLoading] = React.useState<boolean>(false);
+  const isLargeScreen = useMediaQuery("(min-width: 654px)");
   
   const loadingset = () => {
     setLoading(true);
@@ -61,22 +63,26 @@ const App: React.FC = () => {
     getItem(<NavLink to="/" onClick={() => handleClicklink("profile")}>Profile Summary</NavLink>, "profile", <DashboardOutlined />),
     getItem(<NavLink to="/skills" onClick={() => handleClicklink("skills")}>Skills</NavLink>, "skills", <BookOutlined />),
     getItem(<NavLink to="/aboutme" onClick={() => handleClicklink("aboutme")}>Aboutme</NavLink>, "aboutme", <UserOutlined />),
-    getItem(<NavLink to="/team">Team</NavLink>, "sub2", <TeamOutlined />, [
-      getItem(<NavLink to="/team1">Team 1</NavLink>, "6"),
-      getItem(<NavLink to="/team2">Team 2</NavLink>, "8"),
+    getItem(<p>Team</p>, "sub2", <CodepenCircleOutlined />, [
+      getItem(<NavLink to="/frontend">Front End</NavLink>, "frontend"),
+      getItem(<NavLink to="/backend">Back End</NavLink>, "backend"),
+      getItem(<NavLink to="/fullstack">Full Stack</NavLink>, "fullstack"),
     ]),
     getItem(<NavLink to="/files">Files</NavLink>, "9", <FileOutlined />),
   ];
 
   return (
     <Layout className="min-h-screen bg-gray-100">
-      <Sider
+      {isLargeScreen ? (
+        <>
+        <Sider
         collapsible
         collapsed={collapsed}
         style={siderStyle}
         onCollapse={(value) => setCollapsed(value)}
         className="bg-gray-800 text-white sticky top-0 bottom-0"
       >
+        
         <div className="text-center py-4">
           <small className="font-semibold">My Portfolio</small>
         </div>
@@ -88,6 +94,20 @@ const App: React.FC = () => {
           items={items}
         />
       </Sider>
+        </>
+      ) :(
+        <>
+        <Menu
+          theme="dark"
+          defaultSelectedKeys={[activeLink]}
+          onClick={loadingset}
+          mode="inline"
+          items={items}
+          className="flex fixed bottom-0 left-0   w-full text-white text-center p-4 justify-around z-50"
+        />
+
+        </>
+      )}
       <Layout>
         <Header className="bg-white sticky top-0 p-4 shadow-md z-50">
           <div className="text-xl font-semibold">My Porfolio</div>
@@ -106,10 +126,17 @@ const App: React.FC = () => {
           </motion.div>
         </Content>
 
-        <Footer className="text-center bg-gray-800 text-white p-4">
+        {isLargeScreen ? (
+          <>
+          <Footer className="text-center bg-gray-800 text-white p-4">
           © {new Date().getFullYear()} React Project by Panda | Learning Never
           Stops 🚀
         </Footer>
+          </>
+        ):(
+          <>
+          </>
+        )}
       </Layout>
     </Layout>
   );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import skillsdata from "../Data/skill.json";
+import skillsdata from "../Data/frontend.json";
 import {
   Card,
   Modal,
@@ -16,7 +16,7 @@ import {
 import useMediaQuery from "../hooks/useMediaQuery";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useLocation, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import {
   DownOutlined,
   LeftOutlined,
@@ -69,7 +69,7 @@ const SkillCard: React.FC<{ skill: any; showModal: (skill: any) => void }> = ({
         className="m-2 shadow-lg p-2"
         onClick={() => showModal(skill)} // Open modal with the selected skill
         hoverable
-        cover={<Image preview={false} alt="example" src={skill.image} />}
+        cover={<Image preview={false} alt={skill.title} src={skill.image} />}
       >
         <h3 className="text-center">{skill.title}</h3>
         <p>{lenofdis(skill.discrption)}</p>
@@ -99,14 +99,7 @@ const SkillsCard = () => {
     keys: ["category", "title"],
     threshold: 0.3, // Adjust threshold for fuzziness
   });
-  const catogories = [
-    "All",
-    "Web Development",
-    "Programming Foundations",
-    "Future Skills",
-    "Professional Skills",
-    "Data Analysis",
-  ];
+  const catogories = ["All", "Web App"];
   const handleFilterQuery = () => {
     const queryParams = new URLSearchParams(location.search);
     const filterQuery = queryParams.get("filter");
@@ -471,14 +464,20 @@ const SkillsCard = () => {
                     >
                       {selectedSkill.discrption}
                       <br />
-                      <Tag color="blue" className="m-3">
+                      <Divider />
+                      <Link to={`/projects/${selectedSkill.url}`}>
+                        <p className="text-blue-800 underline">
+                          {selectedSkill.url}
+                        </p>
+                      </Link>
+                      <div className="">
+                      <Tag color="blue" className="m-3 text-sm">
                         {selectedSkill.category}
                       </Tag>
+                        <Rate value={selectedSkill.Rate} />
+                      </div>
                     </motion.p>
                   </div>
-                </div>
-                <div className="float-right mb-4 ">
-                  <Rate value={selectedSkill.Rate} />
                 </div>
               </>
             ) : (
@@ -581,7 +580,7 @@ const SkillsCard = () => {
                   </div>
                 </div>
                 <div className="float-right ">
-                  <Rate value={selectedSkill.Rate} />
+                  <Rate value={4} />
                 </div>
               </>
             )}
@@ -592,7 +591,7 @@ const SkillsCard = () => {
   );
 };
 
-const Skills: React.FC = () => {
+const FrontEnd: React.FC = () => {
   return (
     <div>
       <h1 className="text-center mb-6 text-3xl">Skills</h1>
@@ -601,4 +600,4 @@ const Skills: React.FC = () => {
   );
 };
 
-export default Skills;
+export default FrontEnd;

@@ -1,0 +1,10 @@
+[
+    {
+        "title": "Gallery App",
+        "image": "https://play-lh.googleusercontent.com/Sy_9xv0fpbnc6bJgYM_DGj7-BhleftZgjbeFmvcN5eMGnoizMl2igd5IfJEq82xKZw8",
+        "discrption": "Gallery App is a simple, elegant, and lightweight application designed for seamless image viewing. With its clean and intuitive user interface, this app ensures a smooth and enjoyable experience for users. Its fast performance and minimalistic design make it perfect for browsing and organizing images with ease.Developed using React.js, the Gallery App is a frontend-only project focused on providing a modern and visually appealing layout. The user interface has been carefully crafted to enhance image viewing, offering features that prioritize simplicity and usability. Whether you're looking to showcase your favorite photos or browse through collections effortlessly, this app is designed to deliver both functionality and style",
+        "category": "Web App",
+        "url":"gallery.app",
+        "Rate": 5
+      }
+]
