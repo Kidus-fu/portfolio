@@ -26,13 +26,20 @@ import {
 import WritingAnimation from "./WritingAnimation";
 import Fuse from "fuse.js";
 
+// load a json skill.json file
 const data = skillsdata.sort((a, b) => a.title.localeCompare(b.title));
 
 const lenofdis = (description: string) => {
+  // make sure the description is short if not u send ...
   return description.length > 70
     ? description.substring(0, 100) + "..."
     : description;
 };
+
+// SkillsCard Component
+// Handles the rendering of skill cards, filtering, searching, and skill detail navigation.
+// This component manages the state for applied filters, search text, and the currently selected skill for viewing in the modal.
+// It also integrates URL query parameter handling for persisting the state of filters and selected skill.
 
 const SkillCard: React.FC<{ skill: any; showModal: (skill: any) => void }> = ({
   skill,
@@ -55,7 +62,7 @@ const SkillCard: React.FC<{ skill: any; showModal: (skill: any) => void }> = ({
     <motion.div
       ref={ref}
       key={skill.title}
-      className={`m-2 shadow-lg p-2 ${isLargeScreen ? "w-80" : ""}`} // Ensure cards are full-width on mobile
+      className={`m-2 shadow-lg p-2 ${isLargeScreen ? "w-80" : ""}`} 
       initial="hidden"
       animate={controls}
       variants={{
@@ -67,7 +74,7 @@ const SkillCard: React.FC<{ skill: any; showModal: (skill: any) => void }> = ({
       <Card
         key={skill.title}
         className="m-2 shadow-lg p-2"
-        onClick={() => showModal(skill)} // Open modal with the selected skill
+        onClick={() => showModal(skill)} 
         hoverable
         cover={<Image preview={false} alt={skill.title} src={skill.image} />}
       >
@@ -82,7 +89,7 @@ const SkillCard: React.FC<{ skill: any; showModal: (skill: any) => void }> = ({
 const SkillsCard = () => {
   const [openResponsive, setOpenResponsive] = useState(false);
   const isLargeScreen = useMediaQuery("(min-width: 1024px)");
-  const [selectedSkill, setSelectedSkill] = useState<any>(null); // State to store the selected skill
+  const [selectedSkill, setSelectedSkill] = useState<any>(null); 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const modelqurey = queryParams.get("model");
@@ -97,7 +104,7 @@ const SkillsCard = () => {
 
   const fuse = new Fuse(skillsdata, {
     keys: ["category", "title"],
-    threshold: 0.3, // Adjust threshold for fuzziness
+    threshold: 0.3, 
   });
   const catogories = ["All", "Web App"];
   const handleFilterQuery = () => {
@@ -276,7 +283,7 @@ const SkillsCard = () => {
             onSearch={() => searchSkill(search)}
           />
           <Segmented<String>
-            options={["All", "Web Deve", "Future ", "Data Analysis"]}
+            options={["Web App"]}
             onChange={(value) => {
               if (value === "All") {
                 clearFilters();
@@ -347,6 +354,8 @@ const SkillsCard = () => {
         {selectedSkill && (
           <>
             {isLargeScreen ? (
+              // Larger screen model
+              
               <>
                 <div className="flex justify-between items-center">
                   <Image
@@ -358,16 +367,21 @@ const SkillsCard = () => {
                   <div className="flex items-center justify-center gap-4 m-2">
                     {/* Previous Button with Popover */}
                     <div className="flex-1 gap-3 m-2">
+                      {/* Chack the data is filterd */}
+
                       {filteredData.length > 0 ? (
                         <>
+                        {/* When a filter the crouser */}
                           {selectedSkill.title === filteredData[0].title ||
                           selectedSkill.title === filteredData[0].title ? (
+                            //  no prev data make a botton is opacity more like o.15
                             <Button className="mb-2 rounded-full border-none py-4 opacity-15">
                               <UpOutlined className="text-lg" />
                             </Button>
                           ) : (
+                            // if get a perv data 
                             <Popover
-                              content="Prev"
+                            content="Prev"
                               placement="top"
                               trigger="hover"
                             >
@@ -382,19 +396,21 @@ const SkillsCard = () => {
 
                           {selectedSkill.title ===
                           filteredData[filteredData.length - 1].title ? (
+                            //  no next(is a last) data make a botton is opacity more like o.15
                             <Button className="mb-2 rounded-full py-4 opacity-15 border-none">
                               <DownOutlined className="text-lg" />
                             </Button>
                           ) : (
+                            // if get a next data 
                             <Popover
-                              content="Next"
-                              placement="bottom"
-                              trigger="hover"
+                            content="Next"
+                            placement="bottom"
+                            trigger="hover"
                             >
                               <Button
                                 className="mb-2 rounded-full py-4 border-none"
                                 {...(selectedSkill.title ===
-                                filteredData[filteredData.length - 1].title
+                                  filteredData[filteredData.length - 1].title
                                   ? { disabled: true }
                                   : {})}
                                 onClick={() => nextSkill()}
@@ -403,15 +419,18 @@ const SkillsCard = () => {
                               </Button>
                             </Popover>
                           )}
+                          {/* When a filter the crouser end*/}
                         </>
                       ) : (
                         <>
                           {selectedSkill.title === data[0].title ||
                           selectedSkill.title === filteredData[0].title ? (
+                            //  no prev(is a first) data make a botton is opacity more like o.15
                             <Button className="mb-2 rounded-full py-4 opacity-15 border-none">
                               <UpOutlined className="text-lg" />
                             </Button>
                           ) : (
+                            // if get a prev data 
                             <Popover
                               content="Prev"
                               placement="top"
@@ -420,7 +439,7 @@ const SkillsCard = () => {
                               <Button
                                 className="mb-2 rounded-full py-4 border-none"
                                 onClick={() => prevSkill()}
-                              >
+                                >
                                 <UpOutlined className="text-lg" />
                               </Button>
                             </Popover>
@@ -428,19 +447,21 @@ const SkillsCard = () => {
 
                           {selectedSkill.title ===
                           data[data.length - 1].title ? (
+                            //  no next(is a last) data make a botton is opacity more like o.15
                             <Button className="mb-2 rounded-full py-4 opacity-15 border-none">
                               <DownOutlined className="text-lg" />
                             </Button>
                           ) : (
+                            // if get a next data 
                             <Popover
-                              content="Next"
+                            content="Next"
                               placement="bottom"
                               trigger="hover"
                             >
                               <Button
                                 className="mb-2 rounded-full py-4 border-none"
                                 {...(selectedSkill.title ===
-                                data[data.length - 1].title
+                                  data[data.length - 1].title
                                   ? { disabled: true }
                                   : {})}
                                 onClick={() => nextSkill()}
@@ -471,21 +492,25 @@ const SkillsCard = () => {
                         </p>
                       </Link>
                       <div className="">
-                      <Tag color="blue" className="m-3 text-sm">
-                        {selectedSkill.category}
-                      </Tag>
+                        <Tag color="blue" className="m-3 text-sm">
+                          {selectedSkill.category}
+                        </Tag>
                         <Rate value={selectedSkill.Rate} />
                       </div>
                     </motion.p>
                   </div>
                 </div>
               </>
+              // Larger screen model end
             ) : (
+              // small screen model
               <>
                 <div className="flex flex-col items-center rounded-3xl">
                   {filteredData.length > 0 ? (
                     <>
+                    {/* When a filter the crouser */}
                       {selectedSkill.title === filteredData[0].title ? (
+                        //  no prev data make a i is opacity more like o.15
                         <i
                           className="mb-2 cursor-pointer rounded-full opacity-15 py-6 px-6 absolute top-24 left-0"
                           onClick={() => prevSkill()}
@@ -493,6 +518,7 @@ const SkillsCard = () => {
                           <LeftOutlined className="text-lg" />
                         </i>
                       ) : (
+                        // if get a perv data
                         <i
                           className="mb-2 cursor-pointer rounded-full py-6 px-6 absolute top-24 left-0"
                           onClick={() => prevSkill()}
@@ -502,6 +528,7 @@ const SkillsCard = () => {
                       )}
                       {selectedSkill.title ===
                       filteredData[filteredData.length - 1].title ? (
+                        //  no next(is a last) data make a i is opacity more like o.15
                         <i
                           className="mb-2 cursor-pointer  rounded-full opacity-15 py-6 px-6 absolute top-24 right-0"
                           onClick={() => nextSkill()}
@@ -509,6 +536,7 @@ const SkillsCard = () => {
                           <RightOutlined className="text-lg" />
                         </i>
                       ) : (
+                        // if get a next data 
                         <i
                           className="mb-2 cursor-pointer rounded-full py-6 px-6 absolute top-24 right-0"
                           onClick={() => nextSkill()}
@@ -516,10 +544,12 @@ const SkillsCard = () => {
                           <RightOutlined className="text-lg" />
                         </i>
                       )}
+                      {/* When a filter the crouser end*/}
                     </>
                   ) : (
                     <>
                       {selectedSkill.title === data[0].title ? (
+                        //  no prev(is a first) data make a i is opacity more like o.15
                         <i
                           className="mb-2 cursor-pointer rounded-full opacity-15 py-6 px-6 absolute top-24 left-0"
                           onClick={() => prevSkill()}
@@ -527,6 +557,7 @@ const SkillsCard = () => {
                           <LeftOutlined className="text-lg" />
                         </i>
                       ) : (
+                        // if get a prev data 
                         <i
                           className="mb-2 cursor-pointer rounded-full py-6 px-6 absolute top-24 left-0"
                           onClick={() => prevSkill()}
@@ -535,6 +566,7 @@ const SkillsCard = () => {
                         </i>
                       )}
                       {selectedSkill.title === data[data.length - 1].title ? (
+                        //  no next(is a last) data make a i is opacity more like o.15
                         <i
                           className="mb-2 cursor-pointer  rounded-full opacity-15 py-6 px-6 absolute top-24 right-0"
                           onClick={() => nextSkill()}
@@ -542,6 +574,7 @@ const SkillsCard = () => {
                           <RightOutlined className="text-lg" />
                         </i>
                       ) : (
+                        // if get a next data 
                         <i
                           className="mb-2 cursor-pointer rounded-full py-6 px-6 absolute top-24 right-0"
                           onClick={() => nextSkill()}
@@ -573,6 +606,12 @@ const SkillsCard = () => {
                     >
                       {selectedSkill.discrption}
                       <br />
+                      <Divider />
+                      <Link to={`/projects/${selectedSkill.url}`}>
+                        <p className="text-blue-800 underline">
+                          {selectedSkill.url}
+                        </p>
+                        </Link>
                       <Tag color="blue" className="m-3">
                         {selectedSkill.category}
                       </Tag>
@@ -590,6 +629,9 @@ const SkillsCard = () => {
     </>
   );
 };
+// FrontEnd Component
+// Main component responsible for rendering the SkillsCard component and overall page structure. 
+// It serves as the container for all skills and handles page-level setup like titles.
 
 const FrontEnd: React.FC = () => {
   return (
