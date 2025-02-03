@@ -265,7 +265,7 @@
       "setHeight": 300,
       "setRadius": 8,
       "setOpacity": 1,
-      "setRotateZ": 9,
+      "setRotateZ": 0,
       "setShadow": true,
       "setAnimation": "none",
       "setBordercolor": "lightgray",
