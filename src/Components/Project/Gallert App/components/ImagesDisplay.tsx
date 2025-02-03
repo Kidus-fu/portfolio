@@ -1,5 +1,5 @@
 import { Card, Image, Segmented, Drawer, Skeleton } from "antd";
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { Image as ImageType } from "../types/types";
 import { useLocation, useNavigate } from "react-router";
 import useMediaQuery from "../../../../hooks/useMediaQuery";
@@ -13,7 +13,7 @@ const ImagesDisplay: React.FC<{ Images: [] }> = ({ Images }) => {
   const [isDetails, setDetails] = useState(ishasdetails ? true : false); //is a toogle image view detail or not
   const [open, setOpen] = useState(false); // show a details is open
   const [selectedImage, setSelectedImage] = useState<any>(null);
-  const [drawerloading,setDrawerloading] = useState<Boolean>(false)
+  const [drawerloading, setDrawerloading] = useState<Boolean>(false);
   const isLargeScreen = useMediaQuery("(min-width: 1024px)");
   const handelDetails = () => {
     // handel isdetails change
@@ -26,131 +26,262 @@ const ImagesDisplay: React.FC<{ Images: [] }> = ({ Images }) => {
     setDetails(false);
   };
 
-  const showDrawer = (Id:number) => {
-    setDrawerloading(true)
+  const showDrawer = (Id: number) => {
+    setDrawerloading(true);
     // make a Deatils open
     setOpen(true);
-    setSelectedImage(Images.filter((item:ImageType) => item.id == Id ))
+    setSelectedImage(Images.filter((item: ImageType) => item.id == Id));
     setTimeout(() => {
-      setDrawerloading(false)
-    }, 3000)
+      setDrawerloading(false);
+    }, 3000);
   };
 
   const onClose = () => {
     // make a Deatils close
     setOpen(false);
   };
-  function downloadImageFromBlob(imageUrl:string, imageName:string) {
+  function downloadImageFromBlob(imageUrl: string, imageName: string) {
     fetch(imageUrl)
-        .then((response) => response.blob())  // Fetch image as blob
-        .then((blob) => {
-            const url = window.URL.createObjectURL(blob);  // Create URL for the blob
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = imageName || 'image';  // Set download name
-            link.click();
-            window.URL.revokeObjectURL(url);  // Clean up the URL object after download
-        })
-        .catch((error) => {
-            console.error('Error downloading the image:', error);
-        });
-}
-
-
+      .then((response) => response.blob()) // Fetch image as blob
+      .then((blob) => {
+        const url = window.URL.createObjectURL(blob); // Create URL for the blob
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = imageName || "image"; // Set download name
+        link.click();
+        window.URL.revokeObjectURL(url); // Clean up the URL object after download
+      })
+      .catch((error) => {
+        console.error("Error downloading the image:", error);
+      });
+  }
 
   const DrawerModel = () => {
-   
     console.log(selectedImage);
-    
+
     return (
       <>
-       <Drawer title="Images Details" onClose={onClose} open={open} width={800}>
-        {isLargeScreen ? (
-          <>
-          {drawerloading ? (
-          <>
-          <div className="flex gap-3">
-          <Skeleton.Image active={true}  style={{width:300,height:300}}/>
-          <div className="flex-1">
-          <Skeleton active={true}  />
-          <Skeleton active={true}  />
-          </div>
-          </div>
-          <Skeleton active={true}  />
-          </>
-        ) : (
-          <>
-          {selectedImage ? (
-          <>
-          {selectedImage.map((Item:ImageType) => (
+        <Drawer
+          title="Images Details"
+          onClose={onClose}
+          open={open}
+          width={800}
+        >
+          {isLargeScreen ? (
             <>
-            <div className="flex gap-3">
-              <Image src={Item.src} width={400} height={400}/>
-              <div className="flex-1">
-                <p>{Item.title}</p>
-                <small className="text-sm text-gray-600">
-                    {Item.location}\{Item.title}.{Item.typeoffile}
-                  </small>
-              </div>
-            </div>
-            <div className="float-end sticky bottom-0 right-0">
-              <div className="flex ">
-                <i className="bg-blue-500 p-2 m-2 rounded text-white cursor-pointer hover:bg-blue-600" onClick={() => downloadImageFromBlob(Item.src,Item.title)}>
+              {drawerloading ? (
+                <>
+                  <div className="flex gap-3">
+                    <Skeleton.Image
+                      active={true}
+                      style={{ width: 300, height: 300 }}
+                    />
+                    <div className="flex-1">
+                      <Skeleton active={true} />
+                      <Skeleton active={true} />
+                    </div>
+                  </div>
+                  <Skeleton active={true} />
+                </>
+              ) : (
+                <>
+                  {selectedImage ? (
+                    <>
+                      {selectedImage.map((Item: ImageType) => (
+                        <>
+                          <div className="flex ">
+                            <Image src={Item.src} width={400} height={400} />
+                            <div className="flex m-2 border bg-white  justify-center justify-items-center">
+                              <div className="overflow-x-auto">
+                                <table className="min-w-full bg-white border border-gray-200">
+                                  <thead>
+                                    <tr className="bg-gray-100">
+                                      <th className="px-4 py-2 text-left font-semibold text-gray-600">
+                                        Property
+                                      </th>
+                                      <th className="px-4 py-2 text-left font-semibold text-gray-600">
+                                        Value
+                                      </th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr className="border-b">
+                                      <td className="px-4 py-2 font-medium text-gray-800">
+                                        ID
+                                      </td>
+                                      <td className="px-4 py-2 text-gray-600">
+                                        {Item.id}
+                                      </td>
+                                    </tr>
+                                    <tr className="border-b">
+                                      <td className="px-4 py-2 font-medium text-gray-800">
+                                        Title
+                                      </td>
+                                      <td className="px-4 py-2 text-gray-600">
+                                        {Item.title}
+                                      </td>
+                                    </tr>
+                                    <tr className="border-b">
+                                      <td className="px-4 py-2 font-medium text-gray-800">
+                                        Image
+                                      </td>
+                                      <td className="px-4 py-2 text-gray-600">
+                                        {/* <img src={Item.src} alt="Car Image" className="w-32 h-auto rounded-md" />
+                                         */}
+                                        <div className="overflow-ellipsis hover:text-blue-400 cursor-pointer w-[200px]">
+                                          {/* {Item.src} */}
+                                          <i
+                                            className="cursor-pointer text-xl"
+                                            onClick={() =>
+                                              downloadImageFromBlob(
+                                                Item.src,
+                                                Item.title
+                                              )
+                                            }
+                                          >
+                                            <DownloadOutlined />
+                                          </i>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                    <tr className="border-b">
+                                      <td className="px-4 py-2 font-medium text-gray-800">
+                                        Created
+                                      </td>
+                                      <td className="px-4 py-2 text-gray-600">
+                                        {Item.created}
+                                      </td>
+                                    </tr>
+                                    <tr className="border-b">
+                                      <td className="px-4 py-2 font-medium text-gray-800">
+                                        Size
+                                      </td>
+                                      <td className="px-4 py-2 text-gray-600">
+                                        {Item.size}
+                                      </td>
+                                    </tr>
+                                    <tr className="border-b">
+                                      <td className="px-4 py-2 font-medium text-gray-800">
+                                        Location
+                                      </td>
+                                      <td className="px-4 py-2 text-gray-600">
+                                        {Item.location}
+                                      </td>
+                                    </tr>
+                                    <tr className="border-b">
+                                      <td className="px-4 py-2 font-medium text-gray-800">
+                                        Type of File
+                                      </td>
+                                      <td className="px-4 py-2 text-gray-600">
+                                        {Item.typeoffile}
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </>
+                      ))}
+                    </>
+                  ) : (
+                    ""
+                  )}
+                </>
+              )}
+            </>
+          ) : (
+            <>
+              {drawerloading ? (
+                <>
+                  <div className="flex-1">
+                    <Skeleton.Image
+                      active={true}
+                      style={{ width: 300, height: 300 }}
+                    />
+                    <div className="flex-1">
+                      <Skeleton active={true} />
+                      <Skeleton active={true} />
+                    </div>
+                  </div>
+                  <Skeleton active={true} />
+                </>
+              ) : (
+                <>
+                  {selectedImage ? (
+                    <>
+                      {selectedImage.map((Item: ImageType) => (
+                        <>
+                          <div className="flex-1">
+                            <Image src={Item.src} />
+                            <div className="overflow-x-auto">
+      <table className="min-w-full bg-white border border-gray-200">
+        <thead>
+          <tr className="bg-gray-100">
+            <th className="px-4 py-2 text-left font-semibold text-gray-600">Property</th>
+            <th className="px-4 py-2 text-left font-semibold text-gray-600">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="border-b">
+            <td className="px-4 py-2 font-medium text-gray-800">ID</td>
+            <td className="px-4 py-2 text-gray-600">{Item.id}</td>
+          </tr>
+          <tr className="border-b">
+            <td className="px-4 py-2 font-medium text-gray-800">Title</td>
+            <td className="px-4 py-2 text-gray-600">{Item.title}</td>
+          </tr>
+          <tr className="border-b">
+            <td className="px-4 py-2 font-medium text-gray-800">Image</td>
+            <td className="px-4 py-2 text-gray-600">
+              {/* <img src={Item.src} alt="Car Image" className="w-32 h-auto rounded-md" />
+               */}
+               <div className="overflow-ellipsis hover:text-blue-400 cursor-pointer w-[200px]">
+                {/* {Item.src} */}
+               <i className="cursor-pointer text-xl" onClick={() => downloadImageFromBlob(Item.src,Item.title)}>
                 <DownloadOutlined />
                 </i>
-              </div>
-            </div>
+               </div>
+
+            </td>
+          </tr>
+          <tr className="border-b">
+            <td className="px-4 py-2 font-medium text-gray-800">Created</td>
+            <td className="px-4 py-2 text-gray-600">{Item.created}</td>
+          </tr>
+          <tr className="border-b">
+            <td className="px-4 py-2 font-medium text-gray-800">Size</td>
+            <td className="px-4 py-2 text-gray-600">{Item.size}</td>
+          </tr>
+          <tr className="border-b">
+            <td className="px-4 py-2 font-medium text-gray-800">Location</td>
+            <td className="px-4 py-2 text-gray-600">{Item.location}</td>
+          </tr>
+          <tr className="border-b">
+            <td className="px-4 py-2 font-medium text-gray-800">Type of File</td>
+            <td className="px-4 py-2 text-gray-600">{Item.typeoffile}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+                          </div>
+                        </>
+                      ))}
+                    </>
+                  ) : (
+                    ""
+                  )}
+                </>
+              )}
             </>
-          ))}
-          </>
-        ) :""}
-          </>
-        )}
-          </>
-        ) : (
-          <>
-          {drawerloading ? (
-          <>
-          <div className="flex-1">
-          <Skeleton.Image active={true}  style={{width:300,height:300}} />
-          <div className="flex-1">
-          <Skeleton active={true}  />
-          <Skeleton active={true}  />
-          </div>
-          </div>
-          <Skeleton active={true}  />
-          </>
-        ) : (
-          <>
-          {selectedImage ? (
-          <>
-          {selectedImage.map((Item:ImageType) => (
-            <>
-            <div className="flex-1">
-              <Image src={Item.src}/>
-              <div className="flex-1">
-                <p>{Item.title}</p>
-                <small className="text-sm text-gray-600">
-                    {Item.location}\{Item.title}.{Item.typeoffile}
-                  </small>
-              </div>
-            </div>
-            </>
-          ))}
-          </>
-        ) :""}
-          </>
-        )}
-          </>
-        )}
-        
-      </Drawer>
+          )}
+        </Drawer>
       </>
-    )
-  } 
+    );
+  };
   return (
     <>
-    <DrawerModel  />
+      <DrawerModel />
 
       <Segmented<String>
         options={["Details", "Images"]}
@@ -191,7 +322,7 @@ const ImagesDisplay: React.FC<{ Images: [] }> = ({ Images }) => {
                   <h3 className="text-lg font-semibold text-gray-800">
                     {Img.title}
                   </h3>
-                  
+
                   <small>{Img.size}</small>
                 </div>
               </Card>

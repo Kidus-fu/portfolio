@@ -12,6 +12,9 @@ import BackEnd from "./Components/BackEnd.tsx";
 import Fullstack from "./Components/Fullstack.tsx";
 import Gallery from "./Components/Project/Gallert App/Gallery.app.tsx";
 import Camera from "./Components/Project/Gallert App/components/Camera/Camera.tsx";
+import Favorites from "./Components/Project/Gallert App/components/Favorites/Favorites.tsx";
+import WeatherApp from "./Components/Project/Weather App/Components/Weather.tsx";
+import DivManage from "./Components/Project/Div Manage/Components/DivManage.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -27,7 +30,10 @@ createRoot(document.getElementById("root")!).render(
         </Route>
         <Route path="/projects/gallery.app" element={<Gallery />} >
         <Route path="camera" element={<Camera /> } />
+        <Route path="favorites" element={<Favorites /> } />
         </Route>
+        <Route path="/projects/weather.app" element={<WeatherApp />} />
+        <Route path="/projects/divmanage.app" element={<DivManage />} />
         <Route
           path="*"
           element={

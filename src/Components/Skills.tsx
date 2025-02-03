@@ -355,7 +355,7 @@ const SkillsCard = () => {
           <>
             {isLargeScreen ? (
               <>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center ">
                   <Image
                     width={500}
                     height={500}
