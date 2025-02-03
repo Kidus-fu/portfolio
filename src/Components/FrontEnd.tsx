@@ -636,7 +636,7 @@ const SkillsCard = () => {
 const FrontEnd: React.FC = () => {
   return (
     <div>
-      <h1 className="text-center mb-6 text-3xl">Skills</h1>
+      <h1 className="text-center mb-6 text-3xl">Frontend Projects</h1>
       <SkillsCard />
     </div>
   );
