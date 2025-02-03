@@ -1,27 +1,26 @@
 [
-    {
-        "title": "Gallery App",
-        "image": "https://play-lh.googleusercontent.com/Sy_9xv0fpbnc6bJgYM_DGj7-BhleftZgjbeFmvcN5eMGnoizMl2igd5IfJEq82xKZw8",
-        "discrption": "Gallery App is a simple, elegant, and lightweight application designed for seamless image viewing. With its clean and intuitive user interface, this app ensures a smooth and enjoyable experience for users. Its fast performance and minimalistic design make it perfect for browsing and organizing images with ease.Developed using React.js, the Gallery App is a frontend-only project focused on providing a modern and visually appealing layout. The user interface has been carefully crafted to enhance image viewing, offering features that prioritize simplicity and usability. Whether you're looking to showcase your favorite photos or browse through collections effortlessly, this app is designed to deliver both functionality and style",
-        "category": "Web App",
-        "url":"gallery.app",
-        "Rate": 5
-      },
-    {
-        "title": "Weather App",
-        "image": "https://purepng.com/public/uploads/large/purepng.com-weather-iconsymbolsiconsapple-iosiosios-8-iconsios-8-721522596142qx4ep.png",
-        "discrption": "Elegant, and efficient application designed to provide real-time weather updates with ease. With its clean, user-friendly interface, this app ensures a smooth and enjoyable experience for users seeking accurate weather forecasts. Whether you’re planning your day or simply curious about the weather, this app offers fast performance and intuitive navigation.Developed using React.js and integrated with a weather API, the Weather App is a frontend-only project focused on delivering essential weather information in a visually appealing layout. The user interface has been designed with simplicity in mind, offering key features like current temperature, weather conditions, wind speed, and a 5-day forecast, all presented in an easily digestible format.The app’s minimalistic design prioritizes functionality, allowing users to quickly search for weather updates by city or use geolocation to get current weather conditions based on their location. With responsive design, the app adapts to any device, providing an optimized experience across desktop and mobile platforms.",
-        "category": "Web App",
-        "url":"weather.app",
-        "Rate": 5
-      }
-      ,
-    {
-        "title": "Div Manage App",
-        "image": "https://shotkit.com/wp-content/uploads/2020/09/luminar-presets-1.jpg",
-"discrption": "The Div Management System is a powerful tool designed to give you full control over individual <div> elements within your web application. With an easy-to-use interface, you can easily customize key properties such as height, width, box shadow, animations, and 3D transforms (e.g., Z-axis rotation). This tool allows for real-time modifications, enabling seamless adjustments to the layout and style of your <div> elements without writing complex code. Key Features: Height and Width Control: Adjust the size of the <div> element with precision. Box Shadow Application: Add depth and visual appeal with customizable shadow effects. Animation Effects: Apply smooth, CSS-based animations to any div to enhance user experience. Z-Axis Transformation: Rotate elements along the Z-axis for creative 3D effects. Responsive Design: Automatically adjust to different screen sizes for compatibility across devices. This system empowers web developers to fine-tune individual divs, improving the visual aesthetics and functionality of their web pages with ease.",
-        "category": "Web App",
-        "url":"divmanage.app",
-        "Rate": 4
-      }
+  {
+    "title": "Gallery App",
+    "image": "https://play-lh.googleusercontent.com/Sy_9xv0fpbnc6bJgYM_DGj7-BhleftZgjbeFmvcN5eMGnoizMl2igd5IfJEq82xKZw8",
+    "discrption": "Gallery App is a simple, elegant, and lightweight application designed for seamless image viewing. With its clean and intuitive user interface, this app ensures a smooth and enjoyable experience for users. Its fast performance and minimalistic design make it perfect for browsing and organizing images with ease.Developed using React.js, the Gallery App is a frontend-only project focused on providing a modern and visually appealing layout. The user interface has been carefully crafted to enhance image viewing, offering features that prioritize simplicity and usability. Whether you're looking to showcase your favorite photos or browse through collections effortlessly, this app is designed to deliver both functionality and style",
+    "category": "Web App",
+    "url": "gallery.app",
+    "Rate": 5
+  },
+  {
+    "title": "Weather App",
+    "image": "https://purepng.com/public/uploads/large/purepng.com-weather-iconsymbolsiconsapple-iosiosios-8-iconsios-8-721522596142qx4ep.png",
+    "discrption": "Elegant, and efficient application designed to provide real-time weather updates with ease. With its clean, user-friendly interface, this app ensures a smooth and enjoyable experience for users seeking accurate weather forecasts. Whether you’re planning your day or simply curious about the weather, this app offers fast performance and intuitive navigation.Developed using React.js and integrated with a weather API, the Weather App is a frontend-only project focused on delivering essential weather information in a visually appealing layout. The user interface has been designed with simplicity in mind, offering key features like current temperature, weather conditions, wind speed, and a 5-day forecast, all presented in an easily digestible format.The app’s minimalistic design prioritizes functionality, allowing users to quickly search for weather updates by city or use geolocation to get current weather conditions based on their location. With responsive design, the app adapts to any device, providing an optimized experience across desktop and mobile platforms.",
+    "category": "Web App",
+    "url": "weather.app",
+    "Rate": 5
+  },
+  {
+    "title": "Div Manage App",
+    "image": "https://shotkit.com/wp-content/uploads/2020/09/luminar-presets-1.jpg",
+    "discrption": "The Div Management System is a powerful tool designed to give you full control over individual <div> elements within your web application. With an easy-to-use interface, you can easily customize key properties such as height, width, box shadow, animations, and 3D transforms (e.g., Z-axis rotation). This tool allows for real-time modifications, enabling seamless adjustments to the layout and style of your <div> elements without writing complex code. Key Features: Height and Width Control: Adjust the size of the <div> element with precision. Box Shadow Application: Add depth and visual appeal with customizable shadow effects. Animation Effects: Apply smooth, CSS-based animations to any div to enhance user experience. Z-Axis Transformation: Rotate elements along the Z-axis for creative 3D effects. Responsive Design: Automatically adjust to different screen sizes for compatibility across devices. This system empowers web developers to fine-tune individual divs, improving the visual aesthetics and functionality of their web pages with ease.Powerd by Tailwindcss",
+    "category": "Web App",
+    "url": "divmanage.app",
+    "Rate": 4
+  }
 ]
