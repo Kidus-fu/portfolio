@@ -23,7 +23,6 @@ type NavProps = {
 
 const Nav: React.FC<NavProps> = ({ scrollToConvert, scrollToFeaturs , scrollToImageEdite,scrollToAiArt }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
   
   const menuVariants = {
     open: { opacity: 1, y: 0 },
@@ -62,16 +61,7 @@ const Nav: React.FC<NavProps> = ({ scrollToConvert, scrollToFeaturs , scrollToIm
             Try Now
           </motion.button>
   
-          {/* Toggle Theme Button */}
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={toggleTheme}
-            className="ml-3 p-2 rounded-lg bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 transition"
-            title="Toggle Dark/Light Theme"
-          >
-            {theme === "light" ? "🌙" : "☀️"}
-          </motion.button>
+          
   
           {/* Mobile Menu Button */}
           <motion.button
