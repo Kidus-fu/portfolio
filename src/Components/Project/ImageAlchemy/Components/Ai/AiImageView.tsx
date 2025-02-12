@@ -4,7 +4,6 @@ import imageUrl from "./c5dc1519-e784-4b98-80c3-014d87c61ba0.webp";
 import TextToImageComponent from "./AiImageGenerter";
 import { CloseOutlined, CompressOutlined, ExpandOutlined, MinusOutlined } from "@ant-design/icons";
 import { Popover } from "antd";
-
 const AiImageView: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isclose, setIscolse] = useState(false);
@@ -175,18 +174,15 @@ const AiImageView: React.FC = () => {
                     }
 
                 >
-                    <div
+                    <motion.div
                         className="w-[80px] h-[80px] hover:scale-110 transform delay-300 shadow-gray-900 hover:opacity-100 opacity-45 fixed  shadow-lg dark:shadow-gray-600  flex  overflow-hidden m-4  bg-black/30 backdrop-blur-sm left-24 bottom-0 bg-cover rounded-2xl cursor-pointer"
-                        style={{
-                            backgroundImage:
-                                `url(${imageUrl})`,
-                        }}
+                        style={{ backgroundImage: `url(${imageUrl})` }}
                         onClick={() => openModal()}
                     >
 
 
 
-                    </div>
+                    </motion.div>
                 </Popover>
             )}
             {/* Backdrop */}

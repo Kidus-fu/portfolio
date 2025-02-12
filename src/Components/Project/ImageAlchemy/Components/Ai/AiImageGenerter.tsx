@@ -26,7 +26,6 @@ const TextToImageComponent: React.FC<TextToImageComponentProps> = ({ isclose = f
   const { tickets } = useTicketSystem();
   const [nowtickets, setNowtickets] = useState(0);
   const [buyTicketLoading, setBuyTicketLoading] = React.useState(false);
-  const [percent, setPercent] = React.useState(0);
 
   useEffect(() => {
     if (isclose) {
@@ -68,23 +67,7 @@ const TextToImageComponent: React.FC<TextToImageComponentProps> = ({ isclose = f
     };
   }, []);
 
-  const showLoader = () => {
-    setBuyTicketLoading(true);
-    let ptg = -10;
-
-    const interval = setInterval(() => {
-      ptg += 5;
-      setPercent(ptg);
-
-      if (ptg > 120) {
-        clearInterval(interval);
-        setBuyTicketLoading(false);
-        setPercent(0);
-      }
-    }, 100);
-  };
-
-  showLoader()
+  
   const query = async (data: QueryData) => {
     setLoading(true);
     setError(null);
@@ -193,7 +176,7 @@ const TextToImageComponent: React.FC<TextToImageComponentProps> = ({ isclose = f
 
   return (
     <>
-      <Card className="dark:bg-gray-800 dark:border-gray-800">
+      <Card className="dark:bg-gray-700 border-none">
         <p className="font-bold text-end text-green-400">Tickets available:{" "} {localStorage.getItem("tickets")}</p>
         <Title level={2} className="text-center text-white">
           Text-to-Image Generator
@@ -314,7 +297,7 @@ const TextToImageComponent: React.FC<TextToImageComponentProps> = ({ isclose = f
       </Modal>
 
 
-      <Spin spinning={buyTicketLoading} percent={percent} fullscreen />
+      <Spin spinning={buyTicketLoading} percent={0} fullscreen />
     </>
   );
 };

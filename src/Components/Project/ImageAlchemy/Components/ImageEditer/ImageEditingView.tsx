@@ -198,7 +198,7 @@ const ImageEditingView: React.FC = () => {
             </>
           }
         >
-          <div
+          <motion.div
             className="w-[80px] h-[80px] hover:scale-110 transform delay-300 shadow-gray-900 hover:opacity-100 opacity-45 fixed  shadow-lg dark:shadow-gray-600  flex  overflow-hidden m-4  bg-black/30 backdrop-blur-sm bottom-0 bg-cover rounded-2xl cursor-pointer"
             style={{
               backgroundImage:
@@ -209,7 +209,7 @@ const ImageEditingView: React.FC = () => {
 
 
 
-          </div>
+          </motion.div>
         </Popover>
       )}
       {/* Backdrop */}

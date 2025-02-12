@@ -19,9 +19,10 @@ const Phonto: React.FC = () => (
       src={me1}
       alt="me1"
       height={550}
+      onDrag={(e) => e.preventDefault()}
       width={400}
       preview={false}
-      className="relative w-full xl:max-w-lg xl:mx-auto 2xl:origin-bottom 2xl scale-110 transform delay-150 hover:filter-none  hue-rotate-90" />
+      className="relative w-full xl:max-w-lg xl:mx-auto 2xl:origin-bottom 2xl scale-110 transform delay-150 hover:filter-none  " />
   </div>
 );
 
@@ -37,7 +38,7 @@ const SecondContent: React.FC = () => {
   } = theme.useToken();
 
   return (
-    <div
+    <motion.div
       className="p-5 bg-white rounded-lg shadow-md"
       style={{ minHeight: "360px", borderRadius: borderRadiusLG }} // Rounded corners
     >
@@ -81,7 +82,7 @@ const SecondContent: React.FC = () => {
         </Flex>
       </>
 
-    </div>
+    </motion.div>
   );
 };
 
