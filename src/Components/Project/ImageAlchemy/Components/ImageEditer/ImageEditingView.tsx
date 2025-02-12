@@ -127,7 +127,7 @@ const ImageEditingView: React.FC = () => {
         exit={{ opacity: 0, scale: 0.9 }}
         transition={{ duration: 0.3 }}
         className={`fixed inset-0 z-50 flex items-center justify-center ${isOpen ? "block" : "hidden"
-          } w-full h-full bg-black/30 backdrop-blur-sm`}
+          } w-full h-full bg-black/30 backdrop-blur-md`}
       >
         <motion.div
           className={`relative ${isFullScreen ? "w-full h-full max-w-none rounded-none" : "w-[100vh] max-w-2xl rounded-lg"
