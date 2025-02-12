@@ -57,7 +57,6 @@ const ImageEditor: React.FC<ImageEditorProps> = ({ imageSrc, onComplete }) => {
               onRotationChange={setRotation}
               onCropComplete={onCropComplete}
               cropShape="rect"
-              style={{ touchAction: "none" }} // Fix for mobile gestures
             />
           </div>
         </div>
@@ -75,7 +74,7 @@ const ImageEditor: React.FC<ImageEditorProps> = ({ imageSrc, onComplete }) => {
               step={0.1}
               value={zoom}
               onChange={(value) => setZoom(value as number)}
-              tooltip={{ formatter: (value) => `${Math.round(value * 100)}%` }}
+              tooltip={{ formatter: (value) => `${Math.round(value ? value * 100:0)}%` }}
               className="w-full"
               aria-label="Zoom slider"
             />

@@ -3,7 +3,7 @@ import { useDropzone } from 'react-dropzone';
 import { Button, Select, Slider, Row, Col, message, Tooltip } from 'antd';
 import { DownloadOutlined, SwapOutlined, LoadingOutlined } from '@ant-design/icons';
 import { motion } from 'framer-motion';
-import confetti from 'https://cdn.skypack.dev/canvas-confetti';
+import confetti from "canvas-confetti";
 import FeedbackComponent from './Feedback';
 
 const { Option } = Select;
@@ -188,7 +188,7 @@ const ImageConverter: React.FC = () => {
 
   {/* Upload Area */}
   <motion.div
-    {...getRootProps()}
+    {...getRootProps({ onClick: (event) => event.stopPropagation() })}
     initial={{ scale: 1 }}
     animate={{ scale: isDragActive ? 1.05 : 1 }}
     transition={{ type: 'spring', stiffness: 300 }}
@@ -247,7 +247,7 @@ const ImageConverter: React.FC = () => {
           download={fileName}
           onClick={() => {
             setTimeout(() => {
-              confetti(); // Fire confetti AFTER the download
+              confetti()
               message.success('Image saved successfully!');
               setUseruseapp(true);
             }, 500);

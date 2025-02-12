@@ -1,5 +1,5 @@
 import { DownloadOutlined, InfoCircleFilled, SendOutlined } from "@ant-design/icons";
-import { Button, Image, Input, Space, Modal, Card, Typography, Spin, Alert, Divider } from "antd";
+import { Button, Image, Input, Space, Modal, Card, Typography, Spin, Alert } from "antd";
 import React, { useState, useEffect } from "react";
 import useTicketSystem from "./Hooks/TicketSystem"; // Adjust the import path as needed
 import ChapaLogo from "./Chapa.png";
@@ -23,7 +23,7 @@ const TextToImageComponent: React.FC<TextToImageComponentProps> = ({ isclose = f
   const [inputpromt, setinputpromt] = useState<string>("");
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 
-  const { tickets, isCounting, useTicket } = useTicketSystem();
+  const { tickets } = useTicketSystem();
   const [nowtickets, setNowtickets] = useState(0);
   const [buyTicketLoading, setBuyTicketLoading] = React.useState(false);
   const [percent, setPercent] = React.useState(0);
@@ -84,6 +84,7 @@ const TextToImageComponent: React.FC<TextToImageComponentProps> = ({ isclose = f
     }, 100);
   };
 
+  showLoader()
   const query = async (data: QueryData) => {
     setLoading(true);
     setError(null);
