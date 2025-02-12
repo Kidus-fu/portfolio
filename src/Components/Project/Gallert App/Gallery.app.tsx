@@ -7,8 +7,8 @@ import React, { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router";
 import useMediaQuery from "../../../hooks/useMediaQuery";
 
+import logo from "../../../Data/image-removebg-preview.png"
 const { Header, Content, Sider } = Layout;
-
 const NavBar = () => {
 
   return (
@@ -26,10 +26,10 @@ function GalleryNavbar() {
 
     if (!link) {
       link = document.createElement('link');
-      link.rel = 'icon';
+      link.rel = "icon";
       document.head.appendChild(link);
     }
-    link.href = "https://play-lh.googleusercontent.com/Sy_9xv0fpbnc6bJgYM_DGj7-BhleftZgjbeFmvcN5eMGnoizMl2igd5IfJEq82xKZw8"
+    link.href = logo;
     document.title = "Gallery App"
   })
 

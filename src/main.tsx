@@ -15,6 +15,7 @@ import Camera from "./Components/Project/Gallert App/components/Camera/Camera.ts
 import Favorites from "./Components/Project/Gallert App/components/Favorites/Favorites.tsx";
 import WeatherApp from "./Components/Project/Weather App/Components/Weather.tsx";
 import DivManage from "./Components/Project/Div Manage/Components/DivManage.tsx";
+import ImgMain from "./Components/Project/ImageAlchemy/Components/imgmain.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -34,6 +35,7 @@ createRoot(document.getElementById("root")!).render(
         </Route>
         <Route path="/projects/weather.app" element={<WeatherApp />} />
         <Route path="/projects/divmanage.app" element={<DivManage />} />
+        <Route path="/projects/image-converter.app" element={<ImgMain />} />
         <Route
           path="*"
           element={

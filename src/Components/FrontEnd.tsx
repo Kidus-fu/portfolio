@@ -16,6 +16,7 @@ import {
 import useMediaQuery from "../hooks/useMediaQuery";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { FacebookFilled, InstagramOutlined, LinkedinFilled, TwitterCircleFilled } from '@ant-design/icons';
 import { Link, useLocation, useNavigate } from "react-router";
 import {
   DownOutlined,
@@ -242,6 +243,18 @@ const SkillsCard = () => {
       {/* Affix for Theme Switch */}
       {/* <Affix offsetTop={100} className="float-end"></Affix> */}
       <Divider />
+      <div className="fixed sm:inline-block top-2/4  flex-1 right-10 animate-pulse hover:animate-none shadow-2xl ">
+                        <motion.a  
+                        
+                        href="https://www.facebook.com/adama.kable" target="_blank" className="text-blue-700 hover:text-blue-900 "><FacebookFilled className='p-2  transform delay-75 text-xl hover:scale-105 hover:shadow-sm border rounded-full border-opacity-40 ' /></motion.a>
+                        <br />
+                        <motion.a href="https://www.twitter.com/adamakable" target="_blank" className="text-blue-700 hover:text-blue-900"><TwitterCircleFilled className='p-2  transform delay-75 text-xl hover:scale-105 hover:shadow-sm border rounded-full border-opacity-40 ' /></motion.a>
+                        <br />
+                        <motion.a href="#" target="_blank" className="text-red-500  hover:text-red-600"><InstagramOutlined className='p-2  transform delay-75 text-xl hover:scale-105 hover:shadow-sm border rounded-full border-opacity-40 ' /></motion.a>
+                        <br />
+                        <motion.a href="https://www.linkedin.com/in/kidus-panda/" target="_blank" className="text-blue-700 hover:text-blue-900"><LinkedinFilled className='p-2  transform delay-75 text-xl hover:scale-105 hover:shadow-sm border rounded-full border-opacity-40 ' /></motion.a>
+                        <br />
+                    </div>
       {isLargeScreen ? (
         <div className="flex justify-between">
           <div className="flex gap-2">

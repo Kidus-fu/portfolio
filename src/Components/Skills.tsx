@@ -69,7 +69,7 @@ const SkillCard: React.FC<{ skill: any; showModal: (skill: any) => void }> = ({
         className="m-2 shadow-lg p-2"
         onClick={() => showModal(skill)} // Open modal with the selected skill
         hoverable
-        cover={<Image preview={false} alt="example" src={skill.image} />}
+        cover={<Image preview={false} alt="example" src={skill.image} onDragStart={(e) => e.preventDefault()} />}
       >
         <h3 className="text-center">{skill.title}</h3>
         <p>{lenofdis(skill.discrption)}</p>
@@ -360,6 +360,7 @@ const SkillsCard = () => {
                     width={500}
                     height={500}
                     src={selectedSkill.image}
+                    onDragStart={(e) => e.preventDefault()}
                     preview={false}
                   />
                   <div className="flex items-center justify-center gap-4 m-2">
@@ -557,6 +558,7 @@ const SkillsCard = () => {
                     width={200}
                     height={200}
                     src={selectedSkill.image}
+                    draggable
                     preview={false}
                   />
                   <div className="m-8">
