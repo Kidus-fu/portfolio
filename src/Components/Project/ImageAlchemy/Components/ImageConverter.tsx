@@ -143,9 +143,9 @@ const ImageConverter: React.FC = () => {
         >
           Image Converter
         </motion.h2>
-        <div
+        <motion.div
           className="p-6 bg-white dark:bg-gray-900 shadow-lg shadow-gray-300 dark:shadow-gray-700 rounded-3xl"
-          
+          style={{ maxWidth: 700, margin: '2rem auto' }}
         >
           <div className="flex items-center gap-2 dark:text-gray-300 m-2">
             <SwapOutlined className="text-blue-500" />
@@ -256,7 +256,7 @@ const ImageConverter: React.FC = () => {
               </div>
             </motion.div>
           )}
-        </div>
+        </motion.div>
 
       </motion.div>
 
