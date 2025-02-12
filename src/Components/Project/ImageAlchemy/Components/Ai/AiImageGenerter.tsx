@@ -83,34 +83,6 @@ const TextToImageComponent: React.FC<TextToImageComponentProps> = ({ isclose = f
       }
     }, 100);
   };
-
-  const query = async (data: QueryData) => {
-    setLoading(true);
-    setError(null);
-
-    try {
-      const response = await fetch(
-        "https://api-inference.huggingface.co/models/ZB-Tech/Text-to-Image",
-        {
-          headers: {
-            Authorization: "Bearer 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",
-            "Content-Type": "application/json",
-          },
-          method: "POST",
-          body: JSON.stringify(data),
-        }
-      );
-      const result = await response.blob();
-      const url = URL.createObjectURL(result);
-      setImageUrl(url);
-    } catch (err) {
-      setError("Error fetching image. Please try again.");
-    } finally {
-
-      setLoading(false);
-    }
-  };
-
   const downloadImage = (url: string) => {
     const link = document.createElement("a");
     link.href = url;
@@ -129,7 +101,6 @@ const TextToImageComponent: React.FC<TextToImageComponentProps> = ({ isclose = f
       localStorage.setItem("tickets", updatedTickets.toString());
       setNowtickets(updatedTickets);
       console.log("Generating image for:", promt);
-      query({ inputs: promt });
     } else {
       setIsModalVisible(true);
     }
