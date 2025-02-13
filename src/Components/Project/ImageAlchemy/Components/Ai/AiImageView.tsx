@@ -66,7 +66,7 @@ const AiImageView: React.FC = () => {
                             <motion.div
                                 className="h-80 bg-cover lg:h-full rounded-lg border dark:border-none"
                                 style={{ backgroundImage: `url(${imageUrl})` }}
-                                initial={{ opacity: 0.1, x: -200 }}
+                                initial={{ opacity: 0.1, x: -70 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{once:true}}
                                 transition={{ delay: 0.2, duration: 1.5 }}
@@ -78,7 +78,7 @@ const AiImageView: React.FC = () => {
                         <motion.div
                             className="py-12 px-6 lg:px-12 max-w-xl lg:max-w-5xl lg:w-1/2 rounded-t-none 
                             shadow-xl dark:border-none border lg:rounded-lg dark:shadow-gray-600"
-                            initial={{ opacity: 0.1, x: 500 }}
+                            initial={{ opacity: 0.1, x: 200 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.4, duration: 0.5 }}

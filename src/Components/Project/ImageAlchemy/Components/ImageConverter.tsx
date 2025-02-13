@@ -116,7 +116,7 @@ const ImageConverter: React.FC = () => {
     [targetFormat, quality]
   );
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+  const { getRootProps, getInputProps, isDragActive,open } = useDropzone({
     onDrop,
     accept: {
       'image/jpeg': ['.jpeg', '.jpg'],
@@ -144,7 +144,7 @@ const ImageConverter: React.FC = () => {
           Image Converter
         </motion.h2>
         <motion.div
-          className="p-6 bg-white dark:bg-gray-900 shadow-lg shadow-gray-300 dark:shadow-gray-700 rounded-3xl"
+          className="p-6 max-w-[700px]  bg-white dark:bg-gray-900 shadow-lg shadow-gray-300 dark:shadow-gray-700 rounded-3xl"
           style={{ maxWidth: 700, margin: '2rem auto' }}
         >
           <div className="flex items-center gap-2 dark:text-gray-300 m-2">
@@ -193,12 +193,13 @@ const ImageConverter: React.FC = () => {
             animate={{ scale: isDragActive ? 1.05 : 1 }}
             transition={{ type: 'spring', stiffness: 300 }}
             className="rounded-md"
+            onClick={() => open()}
           >
-            <input {...getInputProps()} />
+            <input {...getInputProps()} className="absolute w-full h-full opacity-0 cursor-pointer"/>
             <div
               className="border-2 border-dashed border-blue-500 dark:border-blue-400 rounded-md p-8 text-center cursor-pointer transition-all duration-300 
                  w-full min-h-[200px] flex flex-col justify-center items-center mx-auto bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700"
-
+            
             >
               {isConverting ? (
                 <div className="flex flex-col items-center gap-2">
