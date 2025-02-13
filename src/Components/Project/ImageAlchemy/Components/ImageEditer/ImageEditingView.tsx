@@ -199,7 +199,7 @@ const ImageEditingView: React.FC = () => {
           }
         >
           <motion.div
-            className="w-[80px] h-[80px] hover:scale-110 transform delay-300 shadow-gray-900 hover:opacity-100 opacity-45 fixed  shadow-lg dark:shadow-gray-600  flex  overflow-hidden m-4  bg-black/30 backdrop-blur-sm bottom-0 bg-cover rounded-2xl cursor-pointer"
+            className="w-[80px] h-[80px] hover:scale-110 transform delay-300 shadow-gray-900 hover:opacity-100 opacity-80 fixed  shadow-lg dark:shadow-gray-600  flex  overflow-hidden m-4  bg-black/30 backdrop-blur-sm bottom-0 bg-cover rounded-2xl z-50 cursor-pointer"
             style={{
               backgroundImage:
                 "url('https://wallpapercave.com/wp/wp8805431.jpg')",
