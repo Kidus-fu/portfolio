@@ -77,8 +77,34 @@ const AiImageView: React.FC = () => {
                         {/* Content Section */}
                         <motion.div
                             className="py-12 px-6 lg:px-12 max-w-xl lg:max-w-5xl lg:w-1/2 rounded-t-none 
-                            shadow-xl dark:border-none border lg:rounded-lg dark:shadow-gray-600"
+                            shadow-xl dark:border-none border hidden md:block lg:rounded-lg dark:shadow-gray-600"
                             initial={{ opacity: 0.1, x: 200 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.4, duration: 0.5 }}
+                        >
+                            <h2 className="text-3xl font-bold">
+                                Explore Stunning <span className="text-indigo-600">AI Art</span>
+                            </h2>
+                            <p className="mt-4 text-gray-700 dark:text-gray-300">
+                                Unleash your creativity with our powerful AI-driven image generation and editing platform. Whether you're a designer, marketer, or hobbyist, our intuitive tools help you craft breathtaking visuals in minutes. Perfect for personal projects, professional presentations, and social media content—effortlessly generate, refine, and download stunning AI-crafted images to bring your ideas to life!
+                            </p>
+                            <div className="mt-8">
+                                <motion.button
+                                    className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-3 font-semibold rounded-lg shadow-lg"
+                                    onClick={openModal}
+                                    initial={{rotateZ:"3deg"}}
+                                    whileHover={{ scale: 1.05,rotateZ:"0deg" }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    Start Generat
+                                </motion.button>
+                            </div>
+                        </motion.div>
+                        <motion.div
+                            className="py-12 px-6 lg:px-12 max-w-xl lg:max-w-5xl lg:w-1/2 rounded-t-none 
+                            shadow-xl dark:border-none border sm:hidden lg:rounded-lg dark:shadow-gray-600"
+                            initial={{ opacity: 0.1, x: 0 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.4, duration: 0.5 }}
@@ -106,7 +132,7 @@ const AiImageView: React.FC = () => {
                             <motion.div
                                 className="h-80 bg-cover lg:h-full rounded-lg border dark:border-none"
                                 style={{ backgroundImage: `url(${imageUrl})` }}
-                                initial={{ opacity: 0.1, x: -200 }}
+                                initial={{ opacity: 0.1, x: 0 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{once:true}}
                                 transition={{ delay: 0.2, duration: 1.5 }}
