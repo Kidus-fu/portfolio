@@ -45,7 +45,7 @@ const Nav: React.FC<NavProps> = ({ scrollToConvert, scrollToFeaturs , scrollToIm
             className="h-6 mr-3 sm:h-9"
             alt="Image Alchemy"
           />
-          <span className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+          <span className="text-lg font-semibold text-gray-800 dark:text-white">
             Image Alchemy
           </span>
         </div>
@@ -164,7 +164,7 @@ const Nav: React.FC<NavProps> = ({ scrollToConvert, scrollToFeaturs , scrollToIm
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => window.scrollTo({ top: 0, left: 0 })}
-              className="text-gray-700 dark:text-gray-500 dark:hover:text-purple-700 hover:text-purple-700 transition"
+              className="text-white dark:text-white dark:hover:text-purple-700 hover:text-purple-700 transition"
             >
               <HomeFilled /> Home
             </motion.button>
@@ -174,7 +174,7 @@ const Nav: React.FC<NavProps> = ({ scrollToConvert, scrollToFeaturs , scrollToIm
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToConvert}
-              className="text-gray-700 dark:text-gray-500 dark:hover:text-purple-700 hover:text-purple-700 transition"
+              className="text-gray-700 dark:text-white dark:hover:text-purple-700 hover:text-purple-700 transition"
             >
               <EditFilled /> Convert
             </motion.button>
@@ -184,7 +184,7 @@ const Nav: React.FC<NavProps> = ({ scrollToConvert, scrollToFeaturs , scrollToIm
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToFeaturs}
-              className="text-gray-700 dark:text-gray-500 dark:hover:text-purple-700 hover:text-purple-700 transition"
+              className="text-gray-700 dark:text-white dark:hover:text-purple-700 hover:text-purple-700 transition"
             >
               <PaperClipOutlined /> Features
             </motion.button>
@@ -194,7 +194,7 @@ const Nav: React.FC<NavProps> = ({ scrollToConvert, scrollToFeaturs , scrollToIm
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToImageEdite}
-              className="text-gray-700 dark:text-gray-500 dark:hover:text-purple-700 hover:text-purple-700 transition"
+              className="text-gray-700 dark:text-white dark:hover:text-purple-700 hover:text-purple-700 transition"
             >
               <FileImageOutlined /> Edited Image
             </motion.button>
@@ -204,7 +204,7 @@ const Nav: React.FC<NavProps> = ({ scrollToConvert, scrollToFeaturs , scrollToIm
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToAiArt}
-              className="text-gray-700 dark:text-gray-500 dark:hover:text-purple-700 hover:text-purple-700 transition"
+              className="text-gray-700 dark:text-white dark:hover:text-purple-700 hover:text-purple-700 transition"
             >
               <StarFilled className='text-blue-900 text-sm' /> AI Art
             </motion.button>

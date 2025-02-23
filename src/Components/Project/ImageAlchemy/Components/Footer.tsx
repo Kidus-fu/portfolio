@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
                 <li>
 
 
-                    <motion.a href="https://x.com/KidusPanda1824" target="_blank" className="text-black hover:text-slate-900"><XOutlined className='p-2  transform delay-75 text-xl hover:scale-105 hover:shadow-sm border rounded-full border-opacity-40 dark:border-none' /></motion.a>
+                    <motion.a href="https://x.com/KidusPanda1824" target="_blank" className="text-black hover:text-black"><XOutlined className='p-2  transform delay-75 text-xl hover:scale-105 hover:shadow-sm border rounded-full scale-300 border-opacity-40 dark:border-none' /></motion.a>
 
                     <motion.a href="#" target="_blank" className="text-red-500  hover:text-red-600"><InstagramOutlined className='p-2  transform delay-75 text-xl hover:scale-105 hover:shadow-sm border rounded-full border-opacity-40 dark:border-none' /></motion.a>
 
