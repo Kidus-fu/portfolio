@@ -499,7 +499,7 @@ const SkillsCard = () => {
                       {selectedSkill.discrption}
                       <br />
                       <Divider />
-                      <Link to={`/projects/${selectedSkill.url}`}>
+                      <Link target={`${selectedSkill.id == 5 ? "_blank":"_top"}`} to={selectedSkill.id == 5 ? selectedSkill.url : `/projects/${selectedSkill.url}`}>
                         <p className="text-blue-800 underline">
                           {selectedSkill.url}
                         </p>
@@ -620,7 +620,7 @@ const SkillsCard = () => {
                       {selectedSkill.discrption}
                       <br />
                       <Divider />
-                      <Link to={`/projects/${selectedSkill.url}`}>
+                      <Link target={`${selectedSkill.id == 5 ? "_blank":"_top"}`} to={selectedSkill.id == 5 ? selectedSkill.url :`/projects/${selectedSkill.url}`}>
                         <p className="text-blue-800 underline">
                           {selectedSkill.url}
                         </p>
