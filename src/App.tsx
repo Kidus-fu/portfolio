@@ -5,6 +5,7 @@ import {
   UserOutlined,
   BookOutlined,
   CodepenCircleOutlined,
+  FileDoneOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Layout, Menu, Spin } from "antd";
@@ -87,7 +88,7 @@ const App: React.FC = () => {
       getItem(<NavLink to="/backend">Back End</NavLink>, "backend"),
       getItem(<NavLink to="/fullstack">Full Stack</NavLink>, "fullstack"),
     ]),
-    getItem(<NavLink to="/files">Files</NavLink>, "9", <FileOutlined />),
+    getItem(<NavLink to="/resume">Resume</NavLink>, "9", <FileDoneOutlined />),
   ];
 
   return (
@@ -136,7 +137,7 @@ const App: React.FC = () => {
           <div className="text-xl font-semibold">My Porfolio</div>
         </Header>
         {/* Fixed Header end */}
-        <Content className="p-6 space-y-6">
+        <Content className="p-2 space-y-6">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}

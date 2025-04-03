@@ -13,7 +13,7 @@
     "title": "Weather App",
     "image": "https://purepng.com/public/uploads/large/purepng.com-weather-iconsymbolsiconsapple-iosiosios-8-iconsios-8-721522596142qx4ep.png",
     "discrption": "An elegant, efficient app for real-time weather updates. Its clean, user-friendly interface ensures smooth navigation and fast, accurate forecasts. Built with React.js and integrated with a weather API, this frontend-only app delivers key data like current temperature, conditions, wind speed, and a 5-day forecast in a visually appealing layout. Users can search by city or use geolocation for instant updates. The minimalistic design prioritizes functionality, making weather info easy to access and understand. Fully responsive, it offers an optimized experience across both desktop and mobile devices..",
-    "category": "Web App",
+    "category": "in progress",
     "url": "weather.app",
     "Rate": 5
   },
@@ -41,8 +41,8 @@
     "title": "Panda AI",
     "image": "https://pbs.twimg.com/profile_images/1872067243703504896/AIOtbSvv_400x400.jpg",
     "discrption": "Panda AI Assistant is an interactive web application built using Streamlit, designed to assist Ethiopian Junior Web Developers in collaborative project development. The application features user authentication, chat history management, and real-time AI responses powered by Google's Generative AI.",
-    "category": "Streamlit app",
-    "url": "https://panda-ai.streamlit.app/",
+    "category": "coming soon",
+    "url": "coming soon",
     "Rate": 4
   }
 ]

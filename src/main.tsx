@@ -16,6 +16,7 @@ import Favorites from "./Components/Project/Gallert App/components/Favorites/Fav
 import WeatherApp from "./Components/Project/Weather App/Components/Weather.tsx";
 import DivManage from "./Components/Project/Div Manage/Components/DivManage.tsx";
 import ImgMain from "./Components/Project/ImageAlchemy/Components/imgmain.tsx";
+import ResumeComp from "./Components/Resume.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -24,6 +25,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/" element={<App />}>
           <Route index element={<FirstContent />} />
           <Route path="/aboutme" element={<SecondContent />} />
+          <Route path="/resume" element={<ResumeComp />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/frontend" element={<FrontEnd />} />
           <Route path="/backend" element={<BackEnd />} />

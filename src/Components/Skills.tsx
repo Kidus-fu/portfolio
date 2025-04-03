@@ -12,6 +12,7 @@ import {
   Tag,
   Empty,
   Segmented,
+  Progress
 } from "antd";
 import useMediaQuery from "../hooks/useMediaQuery";
 import { motion, useAnimation } from "framer-motion";
@@ -27,8 +28,10 @@ import WritingAnimation from "./WritingAnimation";
 import Fuse from "fuse.js";
 
 const data = skillsdata.sort((a, b) => a.title.localeCompare(b.title));
-
 const lenofdis = (description: string) => {
+  if (!description) {
+    return ""
+  }
   return description.length > 70
     ? description.substring(0, 100) + "..."
     : description;
@@ -55,9 +58,10 @@ const SkillCard: React.FC<{ skill: any; showModal: (skill: any) => void }> = ({
     <motion.div
       ref={ref}
       key={skill.title}
-      className={`m-2 shadow-lg p-2 ${isLargeScreen ? "w-80" : ""}`} // Ensure cards are full-width on mobile
+      className={`m-1 shadow-lg p-1 ${isLargeScreen ? "w-80" : ""}`}
       initial="hidden"
       animate={controls}
+      onClick={() => showModal(skill)}
       variants={{
         hidden: { opacity: 0, y: 100 },
         visible: { opacity: 1, y: 0 },
@@ -67,13 +71,23 @@ const SkillCard: React.FC<{ skill: any; showModal: (skill: any) => void }> = ({
       <Card
         key={skill.title}
         className="m-2 shadow-lg p-2"
-        onClick={() => showModal(skill)} // Open modal with the selected skill
+        
         hoverable
-        cover={<Image preview={false} alt="example" src={skill.image} onDragStart={(e) => e.preventDefault()} />}
+        cover={<Image preview={false} alt={skill.title} src={skill.image} onDragStart={(e) => e.preventDefault()} />}
       >
+        
         <h3 className="text-center">{skill.title}</h3>
         <p>{lenofdis(skill.discrption)}</p>
-        <Tag color="blue">{skill.category}</Tag>
+
+        {/* Ensure category is always an array */}
+        <div className="flex-1 gap-1 mt-2">
+          {(Array.isArray(skill.category) ? skill.category : [skill.category]).map((cat: string, index: number) => (
+            <Tag key={index} className="m-1" color="blue">
+              {cat}
+            </Tag>
+          ))}
+        </div>
+        <Progress percent={skill.Progress} steps={3} />
       </Card>
     </motion.div>
   );
@@ -106,6 +120,7 @@ const SkillsCard = () => {
     "Future Skills",
     "Professional Skills",
     "Data Analysis",
+    "AI"
   ];
   const handleFilterQuery = () => {
     const queryParams = new URLSearchParams(location.search);
@@ -153,8 +168,7 @@ const SkillsCard = () => {
   // Function to show the modal with selected skill
   const showModal = (skill: any) => {
     navigate(
-      `?model=${skill.title} ${
-        filters.length > 0 ? `&filter=["${filters}"]` : ""
+      `?model=${skill.title} ${filters.length > 0 ? `&filter=["${filters}"]` : ""
       }`
     );
     setSelectedSkill(skill);
@@ -168,8 +182,7 @@ const SkillsCard = () => {
       if (index < filteredData.length - 1) {
         setSelectedSkill(filteredData[index + 1]);
         navigate(
-          `?model=${filteredData[index + 1].title} ${
-            filters.length > 0 ? `&filter=["${filters}"]` : ""
+          `?model=${filteredData[index + 1].title} ${filters.length > 0 ? `&filter=["${filters}"]` : ""
           }`
         );
       }
@@ -180,8 +193,7 @@ const SkillsCard = () => {
       if (index < data.length - 1) {
         setSelectedSkill(data[index + 1]);
         navigate(
-          `?model=${data[index + 1].title} ${
-            filters.length > 0 ? `&filter=["${filters}"]` : ""
+          `?model=${data[index + 1].title} ${filters.length > 0 ? `&filter=["${filters}"]` : ""
           }`
         );
       }
@@ -195,8 +207,7 @@ const SkillsCard = () => {
       if (index > 0) {
         setSelectedSkill(filteredData[index - 1]);
         navigate(
-          `?model=${filteredData[index - 1].title} ${
-            filters.length > 0 ? `&filter=["${filters}"]` : ""
+          `?model=${filteredData[index - 1].title} ${filters.length > 0 ? `&filter=["${filters}"]` : ""
           }`
         );
       }
@@ -207,8 +218,7 @@ const SkillsCard = () => {
       if (index > 0) {
         setSelectedSkill(data[index - 1]);
         navigate(
-          `?model=${data[index - 1].title}${
-            filters.length > 0 ? `&filter=${filters}` : ""
+          `?model=${data[index - 1].title}${filters.length > 0 ? `&filter=${filters}` : ""
           }`
         );
       }
@@ -223,16 +233,14 @@ const SkillsCard = () => {
   const searchSkill = (value: string) => {
     setLastSearch(value);
     navigate(
-      `${modelqurey ? `?model=${modelqurey}` : ""}${
-        filters ? `?filter=["${value}"]` : ""
+      `${modelqurey ? `?model=${modelqurey}` : ""}${filters ? `?filter=["${value}"]` : ""
       }`
     );
     setSearch("");
   };
   const setFilter = (value: string) => {
     navigate(
-      `${modelqurey ? `?model=${modelqurey}` : ""}${
-        filters ? `?filter=["${value}"]` : ""
+      `${modelqurey ? `?model=${modelqurey}` : ""}${filters ? `?filter=["${value}"]` : ""
       }`
     );
   };
@@ -259,9 +267,8 @@ const SkillsCard = () => {
           </div>
           <div className="flex justify-end">
             <Search
-              placeholder={`${
-                lastSearch ? `Last Search '${lastSearch}'` : "Search"
-              }`}
+              placeholder={`${lastSearch ? `Last Search '${lastSearch}'` : "Search"
+                }`}
               enterButton
               allowClear
               onSearch={() => searchSkill(search)}
@@ -273,9 +280,8 @@ const SkillsCard = () => {
       ) : (
         <div className="flex-1 justify-center gap-3">
           <Search
-            placeholder={`${
-              lastSearch ? `Last Search '${lastSearch}'` : "Search"
-            }`}
+            placeholder={`${lastSearch ? `Last Search '${lastSearch}'` : "Search"
+              }`}
             enterButton
             allowClear
             onChange={(e) => setSearch(e.target.value)}
@@ -283,7 +289,7 @@ const SkillsCard = () => {
             onSearch={() => searchSkill(search)}
           />
           <Segmented<String>
-            options={["All", "Web Deve", "Future ", "Data Analysis"]}
+            options={["All", "Web Deve", "Future ", "Data Analysis","AI"]}
             onChange={(value) => {
               if (value === "All") {
                 clearFilters();
@@ -369,7 +375,7 @@ const SkillsCard = () => {
                       {filteredData.length > 0 ? (
                         <>
                           {selectedSkill.title === filteredData[0].title ||
-                          selectedSkill.title === filteredData[0].title ? (
+                            selectedSkill.title === filteredData[0].title ? (
                             <Button className="mb-2 rounded-full border-none py-4 opacity-15">
                               <UpOutlined className="text-lg" />
                             </Button>
@@ -389,7 +395,7 @@ const SkillsCard = () => {
                           )}
 
                           {selectedSkill.title ===
-                          filteredData[filteredData.length - 1].title ? (
+                            filteredData[filteredData.length - 1].title ? (
                             <Button className="mb-2 rounded-full py-4 opacity-15 border-none">
                               <DownOutlined className="text-lg" />
                             </Button>
@@ -402,7 +408,7 @@ const SkillsCard = () => {
                               <Button
                                 className="mb-2 rounded-full py-4 border-none"
                                 {...(selectedSkill.title ===
-                                filteredData[filteredData.length - 1].title
+                                  filteredData[filteredData.length - 1].title
                                   ? { disabled: true }
                                   : {})}
                                 onClick={() => nextSkill()}
@@ -415,7 +421,7 @@ const SkillsCard = () => {
                       ) : (
                         <>
                           {selectedSkill.title === data[0].title ||
-                          selectedSkill.title === filteredData[0].title ? (
+                            selectedSkill.title === filteredData[0].title ? (
                             <Button className="mb-2 rounded-full py-4 opacity-15 border-none">
                               <UpOutlined className="text-lg" />
                             </Button>
@@ -435,7 +441,7 @@ const SkillsCard = () => {
                           )}
 
                           {selectedSkill.title ===
-                          data[data.length - 1].title ? (
+                            data[data.length - 1].title ? (
                             <Button className="mb-2 rounded-full py-4 opacity-15 border-none">
                               <DownOutlined className="text-lg" />
                             </Button>
@@ -448,7 +454,7 @@ const SkillsCard = () => {
                               <Button
                                 className="mb-2 rounded-full py-4 border-none"
                                 {...(selectedSkill.title ===
-                                data[data.length - 1].title
+                                  data[data.length - 1].title
                                   ? { disabled: true }
                                   : {})}
                                 onClick={() => nextSkill()}
@@ -472,9 +478,16 @@ const SkillsCard = () => {
                     >
                       {selectedSkill.discrption}
                       <br />
-                      <Tag color="blue" className="m-3">
-                        {selectedSkill.category}
-                      </Tag>
+                      <div className="flex-1 gap-1 mt-2">
+                        {(Array.isArray(selectedSkill.category) ? selectedSkill.category : [selectedSkill.category]).map((cat: string, index: number) => (
+                          <Tag key={index} className="m-1" color="blue">
+                            {cat}
+                          </Tag>
+                        ))}
+                      </div>
+                      <div className="flex just">
+                      <Progress type="circle" percent={(selectedSkill.Progress)} />
+                        </div>
                     </motion.p>
                   </div>
                 </div>
@@ -503,7 +516,7 @@ const SkillsCard = () => {
                         </i>
                       )}
                       {selectedSkill.title ===
-                      filteredData[filteredData.length - 1].title ? (
+                        filteredData[filteredData.length - 1].title ? (
                         <i
                           className="mb-2 cursor-pointer  rounded-full opacity-15 py-6 px-6 absolute top-24 right-0"
                           onClick={() => nextSkill()}
